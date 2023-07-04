@@ -1,16 +1,17 @@
+#Creates empty stack
 def create_stack():
     stack = []
     return stack
 
-# Creating an empty stack
+#Checking empty stack
 def check_empty(stack):
     return len(stack) == 0
 
-# Adding items to stack
+#Adding items to stack
 def push(stack, item):
     stack.append(item)
 
-# Removing from the stack
+#Removing from the stack
 def pop(stack):
     if (check_empty(stack)):
         return "Stack is empty"
@@ -20,9 +21,9 @@ def pop(stack):
 def maxValue(stack,n1):
     if check_empty(stack):
         return 0
-
     value = 0
     max_value = 0
+    
     #Checking for max value of stack
     for i in range(n1):
         element = int(stack[i])
@@ -33,28 +34,38 @@ def maxValue(stack,n1):
 
 #Getting Sum of All Elements in Stack
 def sumAll(stack, n1):
-    total = 0
+    sum = 0
     for ele in range(0, n1):
         val = int(stack[ele])
-        total += val
+        sum += val
+    return sum
+
+#Getting Mutliplication of Elements in Stack
+def multiply(stack, n1):
+    total = 1
+    for p in range(0, n1):
+        multi = int(stack[p])
+        total *= multi
     return total
 
-
-#Driver Code
+#Main Code
 stack = create_stack()
-n1 = len(stack)
 
 #Input for Stack
 while True:    
-    # Asks user to add items to stack
-    item = input("Enter an item to push onto the stack (or 'q' to quit): ")
     
-    # Add the item to the stack
-    push(stack, item)
+    #Asks user to add items to stack
+    item = input("Enter an item to push onto the stack (or 'q' to quit): ")
     
     #Breaks loop
     if item == 'q':
         break
+    
+    #Add the item to the stack
+    push(stack, item)
+
+n1 = len(stack)
 
 print("Max Value of Stack: " + str(maxValue(stack, n1)))
 print("Total sum of elements: " + str(sumAll(stack,n1)))
+print("Multiplaction of all elements: " + str(multiply(stack, n1)))
